@@ -183,6 +183,65 @@
 	</main>
 
 
+	<!-- FIRST METHOD -->
+
+	<!-- <div>
+		<input type="checkbox" name="" id="onecheck">
+		<input type="checkbox" name="" id="twocheck">
+	</div>
+
+	<script>
+		const onecheck = document.getElementById('onecheck');
+		const seccheck = document.getElementById('twocheck');
+
+		const changeCheck = (e) => {
+			const target = e.target;
+
+			if(target === onecheck && onecheck.checked) {
+				seccheck.checked = !seccheck.value;
+			}
+			if(target === seccheck && seccheck.checked) {
+				onecheck.checked = !onecheck.value;
+			}
+		};
+		onecheck.addEventListener('change', changeCheck);
+		seccheck.addEventListener('change', changeCheck);
+	</script> -->
+
+
+	<!-- SECOND METHOD -->
+	<!-- <div class="block-check">
+		<input class="checkbox" type="checkbox" name="" id="onecheck">
+		<input class="checkbox" type="checkbox" name="" id="twocheck">
+		<input class="checkbox" type="checkbox" name="" id="treecheck">
+		<input class="checkbox" type="checkbox" name="" id="fourcheck">
+		<input class="checkbox" type="checkbox" name="" id="fivecheck">
+		<input class="checkbox" type="checkbox" name="" id="sixcheck">
+	</div>
+
+	<script>
+		const blockCheck = document.querySelector('.block-check');
+
+		const checkbox = document.querySelectorAll('.checkbox'); //this is node list 
+		//[...document.querySelectorAll('.checkbox')] this is array
+
+		const changeCheck = (e) => {
+			const target = e.target;
+			console.log(target.classList)
+			if(target.classList.contains('checkbox') && target.checked) {
+
+				checkbox.forEach((elem) => {
+					if(elem !== target) {
+						elem.checked = !target.checked;
+					}
+				})
+			}
+			
+		};
+
+		blockCheck.addEventListener('change', changeCheck);
+	</script> -->
+
 </body>
 
 </html>

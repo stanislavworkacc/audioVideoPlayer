@@ -15,6 +15,15 @@ export const videoPlayerInit = () => {
      let lastChangeVolume = 0;
     
      //функция смена иконки PLAY - PAUSE;
+
+    videoPlayer.addEventListener('fullscreenchange', () => {
+        if(document.fullscreen) {
+            videoPlayer.controls = true;
+        } else {
+            videoPlayer.controls = false;
+        }
+    });
+
     const toggleIcon = () => {
         if(videoPlayer.paused) {
             videoButtonPlay.classList.remove('fa-pause');
