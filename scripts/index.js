@@ -21,6 +21,8 @@ playerBtn.forEach((btn, index) => btn.addEventListener('click', () => {
     })
 );
 
+console.log('dsadsadsadsadsadsadsadsadsadsa')
+
 radioPlayerInit();
 musicPlayerInit();
 videoPlayerInit();

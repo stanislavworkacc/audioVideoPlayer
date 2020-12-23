@@ -184,7 +184,32 @@ main {
   }
 }
 
-
 .red-text {
   color: #F51E38;
+}
+
+/* ADD NEW STYLE */
+input.video-volume {
+  max-width: 80px;
+  margin-right: 5px;
+}
+
+.video-icon {
+  margin-right: 5px;
+}
+
+.fa-volume-up {
+  margin-right: 7px;
+  width: 20px;
+  height: 20px;
+}
+
+.fa-volume-down {
+  margin-right: 7px;
+  width: 20px;
+  height: 20px;
+}
+
+.video-fullscreeen {
+  cursor: pointer;
 }

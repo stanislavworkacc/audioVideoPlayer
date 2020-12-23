@@ -5,7 +5,15 @@ export const videoPlayerInit = () => {
      const videoTimePassed = document.querySelector('.video-time__passed');
      const videoProgress = document.querySelector('.video-progress');
      const videoTimeTotal = document.querySelector('.video-time__total');
+     const videoVolume = document.querySelector('.video-volume');
+     const offVolume = document.querySelector('.video-icon-off');
+     const maxVolume = document.querySelector('.video-icon-max');
+     const videoFullscreeen = document.querySelector('.video-fullscreeen');
 
+    
+     let counter = 0;
+     let lastChangeVolume = 0;
+    
      //функция смена иконки PLAY - PAUSE;
     const toggleIcon = () => {
         if(videoPlayer.paused) {
@@ -19,7 +27,8 @@ export const videoPlayerInit = () => {
     }
 
     //функция проверка условия TRUE/FALSE : PAUSE/PLAY;
-    const togglePlay = () => {
+    const togglePlay = (event) => {
+        event.preventDefault();
         if(videoPlayer.paused) {
             videoPlayer.play();
          } else {
@@ -34,6 +43,36 @@ export const videoPlayerInit = () => {
     
     
     const addZero = n => n < 10 ? '0' + n : n;
+
+    const changeValue = () => {
+            const value = (videoVolume.value) / 100;
+            videoPlayer.volume = value;
+            lastChangeVolume = videoVolume.value;
+    }
+
+    const offVolumeRange = () => {
+        if(counter === 0) {
+            videoPlayer.volume = 0;
+            videoVolume.value = 0;
+            counter++;
+        } else if(counter === 1) {
+            videoPlayer.volume = lastChangeVolume / 100;
+            videoVolume.value = lastChangeVolume;
+            counter--;
+            }
+    };
+
+    const maxValume = () => {
+        if(counter === 0) {
+            videoPlayer.volume = 1;
+            videoVolume.value = 100;
+            counter++;
+        } else if(counter === 1) {
+            videoPlayer.volume = lastChangeVolume / 100;;
+            videoVolume.value = lastChangeVolume;
+            counter--;
+        }
+    };
 
     //отслеживание события: ЗАПУСК/ПАУЗА потока видео;
      videoPlayer.addEventListener('click', togglePlay);
@@ -69,11 +108,22 @@ export const videoPlayerInit = () => {
 
      });
      
-     videoProgress.addEventListener('change', () => {
+     videoProgress.addEventListener('input', () => {
         const duration = videoPlayer.duration;
-        const value = videoProgress.value;
+        const value = videoProgress.value
 
         videoPlayer.currentTime = (value * duration) / 100;
      });
 
+     videoVolume.addEventListener('input', changeValue);
+
+     offVolume.addEventListener('click', offVolumeRange);
+     maxVolume.addEventListener('click', maxValume);
+
+     videoFullscreeen.addEventListener('click', () => {
+        videoPlayer.requestFullscreen();
+     });
+
+
+     changeValue();
 };
