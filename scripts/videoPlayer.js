@@ -6,8 +6,8 @@ export const videoPlayerInit = () => {
      const videoProgress = document.querySelector('.video-progress');
      const videoTimeTotal = document.querySelector('.video-time__total');
      const videoVolume = document.querySelector('.video-volume');
-     const offVolume = document.querySelector('.video-icon-off');
-     const maxVolume = document.querySelector('.video-icon-max');
+     const offVolume = document.querySelector('.control-icon-off');
+     const maxVolume = document.querySelector('.control-icon-max');
      const videoFullscreeen = document.querySelector('.video-fullscreeen');
 
     
@@ -31,7 +31,6 @@ export const videoPlayerInit = () => {
         } else {
             videoButtonPlay.classList.add('fa-pause');
             videoButtonPlay.classList.remove('fa-play');
-
         }
     }
 
@@ -135,4 +134,10 @@ export const videoPlayerInit = () => {
 
 
      changeValue();
+
+     videoPlayerInit.stop = () => {
+        videoPlayer.pause();
+        toggleIcon();
+        
+     };
 };
