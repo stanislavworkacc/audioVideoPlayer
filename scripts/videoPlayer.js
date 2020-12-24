@@ -138,6 +138,5 @@ export const videoPlayerInit = () => {
      videoPlayerInit.stop = () => {
         videoPlayer.pause();
         toggleIcon();
-        
      };
 };

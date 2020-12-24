@@ -14,6 +14,7 @@ const deactivationPlayer = () => {
 
     radioPlayerInit.stop();
     videoPlayerInit.stop();
+    musicPlayerInit.stop();
 };
 
 
